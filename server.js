@@ -23,6 +23,21 @@ wss.on('connection', (ws, request) => {
 
   // 处理客户端消息
   ws.on('message', (message) => {
+     try {
+            const msg = JSON.parse(message.toString());
+            console.log(`📨 收到信令消息:`, msg);
+
+            // 处理 CONNECT 消息
+            if (msg.type === 'CONNECT') {
+                // 回复客户端连接成功
+                ws.send(JSON.stringify({
+                    type: 'CONNECTED',
+                    clientId: msg.clientId
+                }));
+            }
+        } catch (e) {
+            console.error('消息解析错误:', e);
+        }
     try {
       const msg = message.toString();
       console.log(`📨 收到信令消息: ${msg.substring(0, 100)}...`); // 截断长消息
