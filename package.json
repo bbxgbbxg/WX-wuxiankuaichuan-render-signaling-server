@@ -1,5 +1,5 @@
 {
-  "name": "render-signaling-server",
+  "name": "wx=wuxiankuaichuan-signaling-server",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
