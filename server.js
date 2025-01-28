@@ -30,6 +30,12 @@ wss.on('connection', (ws, request) => {
       console.error('消息解析错误:', e);
     }
   });
+   // 定期发送心跳包，防止客户端超时
+  const interval = setInterval(() => {
+        if (ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ type: "ping" }));
+        }
+    }, 5000);
 
   // 连接关闭处理
   ws.on('close', () => {
