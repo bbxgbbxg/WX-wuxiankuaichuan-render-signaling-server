@@ -1,9 +1,9 @@
 {
   "name": "render-signaling-server",
   "version": "1.0.0",
-  "main": "render.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node render.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
