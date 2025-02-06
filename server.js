@@ -12,7 +12,7 @@ const server = app.listen(port, '0.0.0.0', () => {
 // 创建 WebSocket 服务器，绑定 PeerJS 标准路径 /peerjs
 const wss = new WebSocketServer({
   server,
-  path: '/peerjs', // 必须与客户端 PeerJS 配置的 path 一致
+  //path: '/peerjs', // 必须与客户端 PeerJS 配置的 path 一致
   clientTracking: true // 跟踪连接客户端
 });
 
@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
   res.status(200).json({
     status: 'online',
     protocol: 'WebSocket',
-    path: '/peerjs',
+   // path: '/peerjs',
     clients: wss.clients.size
   });
 });
